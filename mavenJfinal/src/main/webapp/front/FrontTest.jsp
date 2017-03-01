@@ -16,7 +16,6 @@
 <body>
 <body>
 	<h3>#(tes)</h3>
-
 	<div class="container">
 		<div>
 			<a class="btn btn-primary" href="/mavenJfinal/frontTest/add">add</a>
@@ -44,7 +43,7 @@
 								href="/mavenJfinal/frontTest/add1?bid=#(x.id)">修改</a></td>
 						</tr>
 						#end
-						<a id="pre" href="#" onclick="preNumber()">上一页</a>
+						<a id="pre" href="#" onclick="preNumber()">上一页</a>#(bg.pageNumber) /#(bg.totalPage)
 						<a id="nex" onclick="nextNumber()" href="#">下一页</a>
 					</tbody>
 				</table>
@@ -53,56 +52,20 @@
 	</div>
 	<div>
 		<a href="/Jfinal/front/delete?id=1">delete</a>
-
-
-
 	</div>
 	<script type="application/javascript">
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		var pm = 1;
 		var pre = document.getElementById("pre");
 		var nex = document.getElementById("nex")
-
+		var pm = #(bg.pageNumber)
 		function preNumber() {
 			pm < 2 ? 1 : --pm;
 			pre.href = "/mavenJfinal/frontTest?pageNumber=" + pm;
 		}
-
 		function nextNumber() {
-			++pm
+			pm>#(bg.pageNumber)?#(bg.pageNumber):++pm;
 			nex.href = "/mavenJfinal/frontTest?pageNumber=" + pm;
 		}
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
