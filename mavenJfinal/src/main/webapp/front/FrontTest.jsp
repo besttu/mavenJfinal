@@ -43,7 +43,8 @@
 								href="/mavenJfinal/frontTest/add1?bid=#(x.id)">修改</a></td>
 						</tr>
 						#end
-						<a id="pre" href="#" onclick="preNumber()">上一页</a>#(bg.pageNumber) /#(bg.totalPage)
+						<a id="pre" href="#" onclick="preNumber()">上一页</a>#(bg.pageNumber)
+						/#(bg.totalPage)
 						<a id="nex" onclick="nextNumber()" href="#">下一页</a>
 					</tbody>
 				</table>
@@ -63,9 +64,20 @@
 			pre.href = "/mavenJfinal/frontTest?pageNumber=" + pm;
 		}
 		function nextNumber() {
-			pm>#(bg.pageNumber)?#(bg.pageNumber):++pm;
+			//pm>#(bg.pageNumber)?#(bg.pageNumber):++pm;
+			if(pm>#(bg.pageNumber)){
+				pm=#(bg.pageNumber)
+			}else{
+				++pm
+				if(pm>#(bg.pageNumber)){
+					pm=#(bg.pageNumber)
+				}
+			}
 			nex.href = "/mavenJfinal/frontTest?pageNumber=" + pm;
 		}
+	
+	
+	
 	
 	
 	
